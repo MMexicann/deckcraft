@@ -58,11 +58,13 @@ fn source() -> Vec<u8> {
                 name: "ppt/embeddings/owned.xlsx".into(),
                 content_type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet".into(),
                 bytes: WORKBOOK.to_vec(),
+                native_entry: None,
             },
             ChartPart {
                 name: "ppt/drawings/owned.xml".into(),
                 content_type: "application/vnd.openxmlformats-officedocument.drawingml.chartshapes+xml".into(),
                 bytes: DRAWING.to_vec(),
+                native_entry: None,
             },
         ],
     };
