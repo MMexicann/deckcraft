@@ -419,7 +419,12 @@ pub struct ChartPart {
     /// Absolute part name (`ppt/embeddings/Workbook.xlsx`).
     pub name: String,
     pub content_type: String,
+    /// Runtime bytes; older native files stored these inline in the manifest.
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
     pub bytes: Vec<u8>,
+    /// Native ZIP member while encoding/decoding. The native reader consumes this reference.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub native_entry: Option<String>,
 }
 
 /// Sidecar for an unchanged chart: relationships and the parts they reach.
